@@ -15,7 +15,7 @@ class ContactForm(FlaskForm):
     """Contact form."""
 
  
-  
+    form_data = []
     body = TextAreaField(
         "Message", [DataRequired(), Length(min=4, message="Your message is too short.")]
     )

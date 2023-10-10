@@ -5,40 +5,24 @@ from bs4 import BeautifulSoup
 from .forms import ContactForm, SignupForm
 
 
-message_form_data = []
-
-@app.route("/")
-def home():
-    """Landing page."""
-    return render_template(
-        "index.jinja2", template="home-template", title="Flask-WTF tutorial"
-    )
 
 
-@app.route("/contact", methods=["GET", "POST"])
+
+@app.route("/", methods=["GET", "POST"])
 def contact():
     """Standard `contact` form."""
     form = ContactForm()
     
     
     if form.validate_on_submit():
-        message_form_data.append(form.body.data.strip())
-        print(len(message_form_data))
+        form.form_data.append(form.body.data.strip())
+        print(form.form_data)
+        print("length",len(form.form_data))
         return redirect(url_for("success"))
     return render_template(
         "contact.jinja2", form=form, template="form-template", title="Contact Form"
     )
 
-
-@app.route("/signup", methods=["GET", "POST"])
-def signup():
-    """User sign-up form for account creation."""
-    form = SignupForm()
-    if form.validate_on_submit():
-        return redirect(url_for("success"))
-    return render_template(
-        "signup.jinja2", form=form, template="form-template", title="Signup Form"
-    )
 
 
 @app.route("/success", methods=["GET", "POST"])
