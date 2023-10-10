@@ -14,10 +14,8 @@ from wtforms.validators import URL, DataRequired, Email, EqualTo, Length
 class ContactForm(FlaskForm):
     """Contact form."""
 
-    name = StringField("Name", [DataRequired()])
-    email = StringField(
-        "Email", [Email(message="Not a valid email address."), DataRequired()]
-    )
+ 
+  
     body = TextAreaField(
         "Message", [DataRequired(), Length(min=4, message="Your message is too short.")]
     )
@@ -53,3 +51,4 @@ class SignupForm(FlaskForm):
     birthday = DateField("Your Birthday")
     recaptcha = RecaptchaField()
     submit = SubmitField("Submit")
+

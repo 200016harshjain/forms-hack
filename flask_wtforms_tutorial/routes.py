@@ -1,9 +1,11 @@
 """Routing."""
 from flask import current_app as app
 from flask import redirect, render_template, url_for
-
+from bs4 import BeautifulSoup
 from .forms import ContactForm, SignupForm
 
+
+message_form_data = []
 
 @app.route("/")
 def home():
@@ -17,7 +19,11 @@ def home():
 def contact():
     """Standard `contact` form."""
     form = ContactForm()
+    
+    
     if form.validate_on_submit():
+        message_form_data.append(form.body.data.strip())
+        print(len(message_form_data))
         return redirect(url_for("success"))
     return render_template(
         "contact.jinja2", form=form, template="form-template", title="Contact Form"
