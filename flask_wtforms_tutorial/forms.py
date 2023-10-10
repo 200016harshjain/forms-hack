@@ -16,8 +16,9 @@ class ContactForm(FlaskForm):
 
  
     form_data = []
+    form_label = "Message"
     body = TextAreaField(
-        "Message", [DataRequired(), Length(min=4, message="Your message is too short.")]
+       form_label, [DataRequired(), Length(min=4, message="Your message is too short.")]
     )
     submit = SubmitField("Submit")
 
