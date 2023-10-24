@@ -1,45 +1,18 @@
-# Flask-WTF Tutorial
+I currently feel forms (enterprise use cases) need an upgrade. Some issues I've noticed with forms
+  a) Most people don't care enough to fill the form. They just give one word respones - either the forms are designed poorly or they just have more important things to do. 
+  b) The few people who care enough to fill the form may get daunted by a blank screen - one can make this easier by having some sort of prompts
+  c) Assuming people did fill the form - you may often have to reach out to individual responders to dive deeper into the responses
 
-![Python](https://img.shields.io/badge/Python-v^3.8-blue.svg?logo=python&longCache=true&logoColor=white&colorB=5e81ac&style=flat-square&colorA=4c566a)
-![Flask](https://img.shields.io/badge/Flask-v2.1.1-blue.svg?longCache=true&logo=flask&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
-![Flask-WTF](https://img.shields.io/badge/Flask--WTF-v1.0.1-blue.svg?longCache=true&logo=flask&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square&colorA=4c566a&colorB=a3be8c&logo=GitHub)
-[![GitHub Issues](https://img.shields.io/github/issues/hackersandslackers/flask-wtform-tutorial.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/hackersandslackers/flask-wtform-tutorial/issues)
-[![GitHub Stars](https://img.shields.io/github/stars/hackersandslackers/flask-wtform-tutorial.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/hackersandslackers/flask-wtform-tutorial/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/hackersandslackers/flask-wtform-tutorial.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/hackersandslackers/flask-wtform-tutorial/network)
-
-![Flask-WTF Tutorial](https://github.com/hackersandslackers/flask-wtform-tutorial/blob/master/.github/flask-wtforms-tutorial@2x.jpg?raw=true)
-
-Handle user input in your Flask app by creating forms with the Flask-WTForm library.
-
-* **Tutorial**: https://hackersandslackers.com/flask-wtforms-forms/
-* **Demo**: https://flaskwtf.hackersandslackers.app/
-=
-# Getting Started
-
-Get set up locally:
-
-### Installation
-
-Get up and running with `make deploy`:
-
-```shell
-$ git clone https://github.com/hackersandslackers/flask-wtform-tutorial.git
-$ cd flask-wtform-tutorial
-$ make deploy
-``` 
-
-### Environment Variables
-
-Replace the values in **.env.example** with your values and rename this file to **.env**:
-
-* `FLASK_APP`: Entry point of your application (should be `wsgi.py`).
-* `FLASK_ENV`: The environment to run your app in (either `development` or `production`).
-* `SECRET_KEY`: Randomly generated string of characters used to encrypt your app's data.
-
-*Remember never to commit secrets saved in .env files to Github.*
+I think this can be solved using Generative AI. There are two broad approaches
+  1) Have forms that "adapt" based on the responses of all the respondees. Demo link here - https://www.loom.com/share/4605a96f193e46e3aa2ff3c6539e6a1a 
+  2) Have forms that "adapt" based on the responses of the single respondee
 
 
------
+The code in this repo is frankly just some boilerplate frontend and an API call to OpenAI so the repo holds little value. However I think the working demo for (1) is pretty cool and can be carried forward
+ Demo link here - https://www.loom.com/share/4605a96f193e46e3aa2ff3c6539e6a1a 
 
-**Hackers and Slackers** tutorials are free of charge. If you found this tutorial helpful, a [small donation](https://www.buymeacoffee.com/hackersslackers) would be greatly appreciated to keep us in business. All proceeds go towards coffee, and all coffee goes towards more content.
+For (2), I found a lot cleaner demo here - https://twitter.com/dhruvtrehan9/status/1713631214274585025
+
+Taking this from a demo to a product is a lot harder though
+- approach (2) may lead to more detailed responses for a particular question but we may lose out on breadth of responses
+- appraoch (1) can help seeding some possible responses to begin with but we may again start to feed words into our respondee's mouths. 
