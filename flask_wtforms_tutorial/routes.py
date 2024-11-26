@@ -25,7 +25,7 @@ def contact():
         "contact.jinja2", form=form, template="form-template", title="Contact Form"
     )
     
-    # this is for normal rendering - separate ideally as this is fucked up 
+    # this is for normal rendering - separate ideally as this is messed up 
     form.body.data = ""
     return render_template(
         "contact.jinja2", form=form, template="form-template", title="Contact Form"
